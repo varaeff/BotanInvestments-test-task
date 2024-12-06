@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Более быстрый и надёжный способ установки зависимостей
 
       - name: Build project
         env:
@@ -31,8 +31,11 @@ jobs:
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
         run: npm run build
 
+      - name: Verify build output
+        run: ls -la dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.MY_PAT }}
+          github_token: ${{ secrets.MY_PAT }} # Личный токен доступа
           publish_dir: dist
