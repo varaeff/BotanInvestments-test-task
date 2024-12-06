@@ -1,4 +1,4 @@
-# BotanInvestments Test Task
+# BotanInvestments Test Task.
 
 Project published at **GitHub Pages**:
 
