@@ -14,16 +14,6 @@ const router = createRouter({
       name: 'admin',
       component: () => import('../views/AdminView.vue'),
     },
-    {
-      path: '/BotanInvestments-test-task/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/BotanInvestments-test-task/admin',
-      name: 'admin',
-      component: () => import('../views/AdminView.vue'),
-    },
   ],
 })
 
