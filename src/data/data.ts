@@ -4,7 +4,7 @@ interface onboardingBlock {
   text?: string
 }
 
-interface videoBlock {
+export interface videoBlock {
   description: string
   link: string
 }

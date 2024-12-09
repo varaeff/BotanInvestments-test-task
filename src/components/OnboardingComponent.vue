@@ -4,6 +4,7 @@ import { onboardingTexts, videos, buttons } from '@/data/data'
 import { computed, onMounted, onUpdated } from 'vue'
 import { ref, increment, update } from 'firebase/database'
 import { database } from '@/firebaseConfig'
+import VideoComponent from './VideoComponent.vue'
 
 const stageStore = useStageStore()
 
@@ -58,16 +59,7 @@ function buttonClick() {
   </ul>
 
   <div class="videoBlock" v-if="stageStore.stage > 0 && stageStore.stage < 4">
-    <video
-      class="video"
-      :src="videos[stageStore.stage - 1].link"
-      autoplay
-      muted
-      playsinline
-      loop
-      style="height: auto; width: 200px"
-    ></video>
-    <p>{{ videos[stageStore.stage - 1].description }}</p>
+    <VideoComponent :clip="videos[stageStore.stage - 1]" />
   </div>
 
   <div class="buttonBlock" :class="{ buttonStart: stageStore.stage === 0 }">
@@ -107,12 +99,6 @@ function buttonClick() {
 
 .listItem:not(:last-child) {
   margin-bottom: 1rem;
-}
-
-.video {
-  border: 4px solid hsla(160, 100%, 37%, 1);
-  border-radius: 20px;
-  margin-bottom: 0.5rem;
 }
 
 .button {
